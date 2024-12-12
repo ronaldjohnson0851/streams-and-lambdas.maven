@@ -20,7 +20,8 @@ public class StreamFilter {
      * No arg constructor
      */ //TODO - construct person stream of 100 person objects; startingCharacter is a random capital letter
     public StreamFilter() {
-        this(Stream.empty(), null);
+        this.personStream = Stream.generate(() -> new Person("", false, 1_445_432_123_132_121_231_321_332_145, 222, "")).limit(100);
+        this.startingCharacter = String.valueOf((char) ('A' + (int) (Math.random() * 26)));
     }
 
     /**
@@ -28,7 +29,7 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(Person[] people, Character startingCharacter) {
-        this(Stream.empty(), null);
+        this(Stream.of(people), startingCharacter);
     }
 
     /**
